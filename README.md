@@ -92,6 +92,28 @@ This file is responsible for starting the server. Key features include:
 - Starting the server on the port specified in the `.env` file or defaulting to `5000`.
 - Logging the server URL to the console when it starts.
 
+## API Endpoints
+
+### Hotels
+
+#### Controller: `src/controller/hotel.controller.ts`
+
+- **Function**: `getHotels`
+  - **Description**: Handles requests to retrieve hotel data.
+  - **Response**: Returns a JSON object with hotel information.
+  - **Example Response**:
+    ```json
+    {
+      "Hotels": "Hotels"
+    }
+    ```
+
+#### Route: `src/routes/hotel.route.ts`
+
+- **Endpoint**: `GET /`
+  - **Description**: Returns a simple response for the hotels endpoint.
+  - **Response**: A string message `Hotels`.
+
 ## License
 
 This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
