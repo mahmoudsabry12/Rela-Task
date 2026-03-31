@@ -94,6 +94,15 @@ This file is responsible for starting the server. Key features include:
 
 ## API Endpoints
 
+### Application Routes
+
+The following routes have been added to the application:
+
+- **`GET /`**: Returns a simple "Hello, World!" message.
+- **`/api/hotel`**: Routes for hotel-related operations, handled by `hotelRoutes`.
+- **`/supplier-a/hotels`**: Mock supplier A hotel routes, handled by `supplierARoutes`.
+- **`/supplier-b/hotels`**: Mock supplier B hotel routes, handled by `supplierBRoutes`.
+
 ### Hotels
 
 #### Controller: `src/controller/hotel.controller.ts`
