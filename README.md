@@ -75,6 +75,23 @@ PORT=
 
 Ensure that the `.env` file is not committed to version control to protect sensitive information.
 
+## Project Structure
+
+### `src/app.ts`
+
+This file initializes the Express application and sets up middleware and routes. Key features include:
+
+- Middleware for JSON parsing.
+- A sample route at `/` that responds with "Hello, World!".
+
+### `src/server.ts`
+
+This file is responsible for starting the server. Key features include:
+
+- Loading environment variables using `dotenv`.
+- Starting the server on the port specified in the `.env` file or defaulting to `5000`.
+- Logging the server URL to the console when it starts.
+
 ## License
 
 This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
