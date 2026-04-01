@@ -1,0 +1,39 @@
+import { SupplierConfig } from "../types/hotel.types";
+
+export const SUPPLIERS: SupplierConfig[] = [
+  {
+    name: "A",
+    url: "http://localhost:5000/supplier-a/hotels",
+    normalize: (data: any) =>
+      data.data.map((h: any) => ({
+        supplier: "A",
+        supplierHotelId: h.hotelId,
+        name: h.name,
+        city: h.city,
+        price: {
+          amount: h.price,
+          currency: h.currency,
+        },
+        stars: h.stars,
+        available: h.available,
+      })),
+  },
+  {
+    name: "B",
+    url: "http://localhost:5000/supplier-b/hotels",
+    normalize: (data: any) =>
+      data.data.map((h: any) => ({
+        supplier: "B",
+        supplierHotelId: h.id,
+        name: h.hotel_name,
+        city: h.location.cityName,
+        price: {
+          amount: h.pricing.amount,
+          currency: h.pricing.currencyCode,
+        },
+        stars: h.rating,
+        available: h.isAvailable,
+      })),
+  },
+  
+];

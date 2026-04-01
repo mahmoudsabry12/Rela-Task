@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "Rela-Task",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Hotels",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/hotel",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "hotel"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": " Mock Supplier A Hotels",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/supplier-a/hotels",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["supplier-a", "hotels"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Mock Supplier B Hotels",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/supplier-b/hotels",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["supplier-b", "hotels"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

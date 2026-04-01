@@ -1,8 +1,7 @@
 import { Router } from "express";
+import { getHotels } from "../controller/hotel.controller";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-res.json('Hotels')
-})
+router.get("/", getHotels)
 export default router

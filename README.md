@@ -123,6 +123,58 @@ The following routes have been added to the application:
   - **Description**: Returns a simple response for the hotels endpoint.
   - **Response**: A string message `Hotels`.
 
+### New Services
+
+#### `src/services/hotel.service.ts`
+- **Function**: `fetchHotels`
+  - **Description**: Dynamically fetches hotel data from all suppliers.
+  - **Parameters**: Optional `city` parameter to filter results.
+  - **Response**: Returns normalized hotel data and metadata (e.g., warnings).
+
+#### `src/services/supplier.service.ts`
+- **Function**: `fetchSupplierData`
+  - **Description**: Fetches raw data from a supplier's API.
+  - **Parameters**: `url` (supplier endpoint) and optional query parameters.
+  - **Response**: Returns the raw JSON response from the supplier.
+
+### New Types
+
+#### `src/types/hotel.types.ts`
+- **Type**: `Hotel`
+  - Represents a single hotel with fields like `name`, `city`, `price`, `stars`, and `availability`.
+- **Type**: `SupplierConfig`
+  - Represents supplier configuration, including `name`, `url`, and a `normalize` function.
+
+### Supplier Configuration
+
+#### `src/config/suppliers.config.ts`
+- **Supplier A**:
+  - URL: `http://localhost:5000/supplier-a/hotels`
+  - Normalization Function: Maps supplier-specific data to the `Hotel` type.
+- **Supplier B**:
+  - URL: `http://localhost:5000/supplier-b/hotels`
+  - Normalization Function: Maps supplier-specific data to the `Hotel` type.
+
+### Updated Controller
+
+#### `src/controller/hotel.controller.ts`
+- **Function**: `getHotels`
+  - **Description**: Fetches and returns normalized hotel data.
+  - **Enhancements**: Added support for filtering by `city` query parameter.
+  - **Error Handling**: Returns a 500 status code with an error message if fetching fails.
+
+
+
+
+## Postman Collection
+
+A Postman collection has been created to test the API endpoints. You can import the `Rela-Task.postman_collection.json` file into Postman to access the following requests:
+
+- **Get Hotels**: `GET /api/hotel`
+- **Supplier A Hotels**: `GET /supplier-a/hotels`
+- **Supplier B Hotels**: `GET /supplier-b/hotels`
+
+
 ## License
 
 This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
