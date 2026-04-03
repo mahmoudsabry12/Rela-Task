@@ -176,6 +176,15 @@ npm run supplierA
 npm run supplierB 
 ```
 
+
+##  Fault-tolerant 
+
+ - Fix Fault-tolerant Problem (one failing supplier does not break the aggregation)
+
+ - Solution : Using Promise.allSettled instead of Promise.all
+
+
+
 ## Postman Collection
 
 A Postman collection has been created to test the API endpoints. You can import the `Rela-Task.postman_collection.json` file into Postman to access the following requests:

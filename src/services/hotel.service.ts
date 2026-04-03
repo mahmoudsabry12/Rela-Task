@@ -5,27 +5,37 @@ import { Hotel } from "../types/hotel.types";
 
 
 export const fetchHotels = async (city?: string): Promise<{ success: boolean; data: Hotel[]; meta: any }> => {
-  const results: Hotel[] = [];
   const warnings: string[] = [];
 
-  await Promise.all(
+  const responses = await Promise.allSettled(
     SUPPLIERS.map(async (supplier) => {
-      try {
-        const data = await fetchSupplierData(supplier.url, { city });
-        const normalizedData = supplier.normalize(data);
-        results.push(...normalizedData);
-      } catch (error) {
-        warnings.push(`Supplier ${supplier.name} is unavailable`);
-      }
+      const data = await fetchSupplierData(supplier.url, { city });
+      return {
+        supplier,
+        data,
+      };
     })
   );
+
+  const results: Hotel[] = [];
+
+ responses.forEach((res, index) => {
+  if (res.status === "fulfilled") {
+    const { supplier, data } = res.value;
+    const normalized = supplier.normalize(data);
+    results.push(...normalized);
+  } else {
+    warnings.push(`Supplier ${SUPPLIERS[index].name} is unavailable`);
+    console.error(`Error fetching ${SUPPLIERS[index].name}:`, res.reason);
+  }
+});
 
   return {
     success: true,
     data: results,
     meta: {
       count: results.length,
-      warnings: warnings.length > 0 ? warnings : undefined,
+      warnings: warnings.length ? warnings : undefined,
     },
   };
 };
