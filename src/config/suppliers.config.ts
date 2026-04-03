@@ -3,7 +3,7 @@ import { SupplierConfig } from "../types/hotel.types";
 export const SUPPLIERS: SupplierConfig[] = [
   {
     name: "A",
-    url: "http://localhost:4001/supplier-a/hotels",
+    url: process.env.SUPLIER_A_URL || "http://localhost:4001/supplier-a/hotels",
     normalize: (data: any) =>
       data.map((h: any) => ({
         supplier: "A",
@@ -20,7 +20,7 @@ export const SUPPLIERS: SupplierConfig[] = [
   },
   {
     name: "B",
-    url: "http://localhost:4002/supplier-b/list",
+    url: process.env.SUPLIER_B_URL || "http://localhost:4002/supplier-b/list",
     normalize: (data: any) =>
       data.map((h: any) => ({
         supplier: "B",

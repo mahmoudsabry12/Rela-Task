@@ -184,6 +184,21 @@ npm run supplierB
  - Solution : Using Promise.allSettled instead of Promise.all
 
 
+## ** Dockerizing App
+
+### Build Docker Images
+```bash
+docker-compose build
+```
+
+### Run Docker Images
+```bash
+docker-compose up
+```
+### Testing APIs
+- MainApp   : http://localhost:5000/api/hotel?city=Istanbul
+- SupplierA : http://localhost:4001/supplier-a/hotels
+- SupplierB : http://localhost:4002/supplier-b/list
 
 ## Postman Collection
 

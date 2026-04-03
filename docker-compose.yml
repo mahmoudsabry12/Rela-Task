@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  relatask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: RelsTask
+    environment:
+    - SUPPLIER_A_URL=http://supplier_a:4001/supplier-a/hotels
+    - SUPPLIER_B_URL=http://supplier_b:4002/supplier-b/list
+    ports:
+      - "5000:5000"
+
+  supplier_a:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: supplierA
+    ports:
+      - "4001:4001"
+    command: npm run supplierA  
+
+  supplier_b:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: supplierB
+    ports:
+      - "4002:4002"
+    command: npm run supplierB  
