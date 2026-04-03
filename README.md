@@ -163,8 +163,18 @@ The following routes have been added to the application:
   - **Enhancements**: Added support for filtering by `city` query parameter.
   - **Error Handling**: Returns a 500 status code with an error message if fetching fails.
 
+## Separation Suppliers
+- Supplier servers separated
+- Added CORS support
+- Fault-tolerant aggregator logic
 
+###  Run Commands
 
+** Start Supplier Servers**
+```bash
+npm run supplierA 
+npm run supplierB 
+```
 
 ## Postman Collection
 

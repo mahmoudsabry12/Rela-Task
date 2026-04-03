@@ -3,9 +3,9 @@ import { SupplierConfig } from "../types/hotel.types";
 export const SUPPLIERS: SupplierConfig[] = [
   {
     name: "A",
-    url: "http://localhost:5000/supplier-a/hotels",
+    url: "http://localhost:4001/supplier-a/hotels",
     normalize: (data: any) =>
-      data.data.map((h: any) => ({
+      data.map((h: any) => ({
         supplier: "A",
         supplierHotelId: h.hotelId,
         name: h.name,
@@ -20,9 +20,9 @@ export const SUPPLIERS: SupplierConfig[] = [
   },
   {
     name: "B",
-    url: "http://localhost:5000/supplier-b/hotels",
+    url: "http://localhost:4002/supplier-b/list",
     normalize: (data: any) =>
-      data.data.map((h: any) => ({
+      data.map((h: any) => ({
         supplier: "B",
         supplierHotelId: h.id,
         name: h.hotel_name,

@@ -1,8 +1,9 @@
 export const fetchSupplierData = async (url: string, params?: any) => {
   try {
-    const queryParams = params
-      ? "?" + new URLSearchParams(params).toString()
-      : "";
+    const queryParams =
+  params && Object.values(params).some(v => v !== undefined)
+    ? "?" + new URLSearchParams(params).toString()
+    : "";
     const response = await fetch(url + queryParams, {
       method: "GET",
     });
