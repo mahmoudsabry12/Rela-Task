@@ -195,10 +195,23 @@ docker-compose build
 ```bash
 docker-compose up
 ```
+
 ### Testing APIs
 - MainApp   : http://localhost:5000/api/hotel?city=Istanbul
 - SupplierA : http://localhost:4001/supplier-a/hotels
 - SupplierB : http://localhost:4002/supplier-b/list
+
+
+
+# Implement Unit Testing
+##   We use Libraries :
+- Jest
+- Supertest (API Endpoint testing)
+
+## Run Testing
+```bash
+npx test
+```
 
 ## Postman Collection
 
