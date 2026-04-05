@@ -213,6 +213,12 @@ docker-compose up
 npx test
 ```
 
+# Pagination
+- Add limit to Returned Data in Hotel API Endpoint By default = 10
+- Returned metaCount = All Data (not Paginated count)
+
+- **Get Paginated Hotels**: `GET api/hotel?page=1&limit=2`
+
 ## Postman Collection
 
 A Postman collection has been created to test the API endpoints. You can import the `Rela-Task.postman_collection.json` file into Postman to access the following requests:

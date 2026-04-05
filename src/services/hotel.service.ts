@@ -4,7 +4,7 @@ import { Hotel } from "../types/hotel.types";
 
 
 
-export const fetchHotels = async (city?: string): Promise<{ success: boolean; data: Hotel[]; meta: any }> => {
+export const fetchHotels = async (city?: string,page = 1,limit = 10): Promise<{ success: boolean; data: Hotel[]; meta: any }> => {
   const warnings: string[] = [];
 
   const responses = await Promise.allSettled(
@@ -30,9 +30,13 @@ export const fetchHotels = async (city?: string): Promise<{ success: boolean; da
   }
 });
 
+  const startIndex = (page - 1) * limit;
+  const paginatedResults = results.slice(startIndex, startIndex + limit);
+
+
   return {
     success: true,
-    data: results,
+    data: paginatedResults,
     meta: {
       count: results.length,
       warnings: warnings.length ? warnings : undefined,
